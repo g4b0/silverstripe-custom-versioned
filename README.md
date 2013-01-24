@@ -25,7 +25,7 @@ Object::add_extension('DoNews', 'CustomVersioned');
 Object::add_extension('PghNews', 'CustomVersionedHolderPage("News")');
 
 - due to a SS3 bug (actually SS 3.0.2), you have to put into the Page getCMSActions:
-"` php
+
 	public function getCMSFields() {
 		// Disabilito l'updateCMSFields perché voglio che venga chiamto dopo
 		// all'aggiunta dei miei campi
@@ -40,7 +40,7 @@ Object::add_extension('PghNews', 'CustomVersionedHolderPage("News")');
 
 		return $fields;
 	}
-`"
+
 - run /dev/build
 
 ## Usage
