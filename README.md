@@ -40,7 +40,7 @@ Object::add_extension('PghNews', 'CustomVersionedHolderPage("News")');
 
 		return $fields;
 	}
-"`
+`"
 - run /dev/build
 
 ## Usage
