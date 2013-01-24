@@ -113,7 +113,6 @@ class CustomVersioned extends DataExtension {
 		$className = get_class($this->owner);
 		$id = $this->owner->ID;
 		
-		var_dump("DELETE FROM {$className}_Live WHERE ID=$id"); exit;
 		DB::query("DELETE FROM {$className}_Live WHERE ID=$id");	
 		
 		parent::onBeforeDelete();
