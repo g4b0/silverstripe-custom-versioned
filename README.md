@@ -156,6 +156,9 @@ Simply enjoy your versioned DataObjects.
 
 ## Changelog
 
+V1.0 (2013-01-31)
+bugfix and code cleanup
+
 V1.0 (2013-01-27): 
 published on GitHub
 
