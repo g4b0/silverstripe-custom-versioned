@@ -21,19 +21,24 @@ Versioned
 
 ### Example 1 - Simple DataObject
 We have a DataObject called DoNews, a PageHolder called PghNews with a GridField named News:
+```php
 Object::add_extension('DoNews', 'Versioned');
 Object::add_extension('DoNews', 'CustomVersioned');
 Object::add_extension('PghNews', 'CustomVersionedHolderPage("News")');
+```
 
 ### Example 2 - Inherited DataObject
 We have an ancestor DataObject called DoTest, and its child DoTestSub. We define a Holder page, PghTest, that holds DoTestSub pages.
 
+```php
 // CustomVersioned - ANCHESTOR is extended by Versioned and CustomVersioned
 Object::add_extension('DoTest', 'Versioned');
 Object::add_extension('DoTest', 'CustomVersioned');
 // CustomVersioned - CHILD HOLDER is eventually extended by CustomVersionedHolderPage. If we work with ModelAdmin it is not necessary
 Object::add_extension('PghTest', 'CustomVersionedHolderPage("Tests")');
+```
 
+```php
 class DoTest extends DataObject {
 	public static $db = array(
 			'TestStr' => 'Varchar(255)',
@@ -122,24 +127,27 @@ class PghTest extends Page {
 		return $this->Tests()->count();
 	}
 }
+```
 
 ### Warning:
 Due to a SS3 bug (actually SS 3.0.2), you have to put into the Page Holder getCMSActions:
 
-	public function getCMSFields() {
-		// Disabilito l'updateCMSFields perché voglio che venga chiamto dopo
-		// all'aggiunta dei miei campi
-		self::disableCMSFieldsExtensions();
-		$fields = parent::getCMSFields();
-		self::enableCMSFieldsExtensions();
+```php
+public function getCMSFields() {
+	// Disabilito l'updateCMSFields perché voglio che venga chiamto dopo
+	// all'aggiunta dei miei campi
+	self::disableCMSFieldsExtensions();
+	$fields = parent::getCMSFields();
+	self::enableCMSFieldsExtensions();
 
-		// Add your fields here
+	// Add your fields here
 
-		// Chiamo l'updateCMFFields che ho soppresso all'inizio della funzione
-		$this->extend('updateCMSFields', $fields);
+	// Chiamo l'updateCMFFields che ho soppresso all'inizio della funzione
+	$this->extend('updateCMSFields', $fields);
 
-		return $fields;
-	}
+	return $fields;
+}
+```
 
 - run /dev/build
 
