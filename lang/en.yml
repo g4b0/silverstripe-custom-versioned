@@ -2,6 +2,9 @@ en:
   CMSMain:
     DELETE: 'Delete draft'
     SAVEDRAFT: 'Save Draft'
+  CustomVersioned:
+    MODIFIED: Modified
+    PUBLISHED: Published
   GridFieldDetailForm:
     Published: 'Published as %s %s'
     Rollback: 'Rolback %s as %s'
