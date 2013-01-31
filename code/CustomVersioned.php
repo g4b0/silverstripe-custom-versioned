@@ -3,9 +3,14 @@
 class CustomVersioned extends DataExtension {
 
 	static $summary_fields = array(
-			'Published' => 'Published',
-			'Modified' => 'Modified',
+			'Published',
+			'Modified',
 	);
+	
+	public function updateFieldLabels(&$labels) {
+		$labels['Published'] = _t('CustomVersioned.PUBLISHED', 'Published');
+    $labels['Modified'] = _t('CustomVersioned.MODIFIED', 'Modified');
+	}
 
 	/**
 	 * Rimuovo il field Version, essendo un internals
@@ -17,7 +22,7 @@ class CustomVersioned extends DataExtension {
 		// Rimuovo il FormItem Version
 		$fields->removeByName('Version');
 	}
-
+		
 	/**
 	 * Estrae la data di pubblicazione
 	 * @return String

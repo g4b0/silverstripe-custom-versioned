@@ -86,14 +86,7 @@ class CustomVersionedGridFieldDetailForm_ItemRequest extends GridFieldDetailForm
 		if (!$this->record->canPublish())
 			return false;
 
-		$className = get_class($this->record);
-
-		$original = Versioned::get_one_by_stage($className, "Live", "\"$className\".\"ID\" = " . $this->record->ID);
-		if (!$original)
-			$original = new $className();
-
 		$this->doSave($data, $form);
-		$this->record->write();
 		$this->record->publish("Stage", "Live");
 
 		// Need to update pages linking to this one as no longer broken, on the live site
