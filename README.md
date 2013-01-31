@@ -35,7 +35,6 @@ Object::add_extension('DoTest', 'CustomVersioned');
 Object::add_extension('PghTest', 'CustomVersionedHolderPage("Tests")');
 
 class DoTest extends DataObject {
-
 	public static $db = array(
 			'TestStr' => 'Varchar(255)',
 	);
@@ -58,7 +57,6 @@ class DoTest extends DataObject {
 }
 
 class DoTestSub extends DoTest {
-
 	public static $db = array(
 			'TestNum' => 'Int',
 	);
@@ -83,7 +81,6 @@ class DoTestSub extends DoTest {
 }
 
 class PghTest extends Page {
-
 	static $allowed_children = array(
 	);
 	static $has_many = array(
