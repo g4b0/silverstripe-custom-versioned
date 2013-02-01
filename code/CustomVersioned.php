@@ -2,10 +2,10 @@
 
 class CustomVersioned extends DataExtension {
 
-	static $summary_fields = array(
-			'Published',
-			'Modified',
-	);
+	public function updateSummaryFields(&$fields) {
+		$fields['Published'] = 'Published';
+		$fields['Modified'] = 'Modified';		
+	}
 	
 	public function updateFieldLabels(&$labels) {
 		$labels['Published'] = _t('CustomVersioned.PUBLISHED', 'Published');

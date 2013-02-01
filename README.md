@@ -156,7 +156,10 @@ Simply enjoy your versioned DataObjects.
 
 ## Changelog
 
-V1.0 (2013-01-31)
+V1.2 (2013-02-01)
+bugfix: now using updateSummaryFields
+
+V1.1 (2013-01-31)
 bugfix and code cleanup
 
 V1.0 (2013-01-27): 
